@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Übernachtung - Riennerhütte</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="booking-page">
+    <nav id="navbar" class="scrolled">
+        <div class="container">
+            <div class="logo">Riennerhütte</div>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#ueber-uns">Über uns</a></li>
+                <li><a href="uebernachtung.html">Übernachtung</a></li>
+                <li><a href="index.html#standort">Standort</a></li>
+                <li><a href="index.html#kontakt">Kontakt</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="booking-header">
+        <div class="container">
+            <h1>Übernachtung buchen</h1>
+            <p>Wähle deine gewünschten Daten und füll sie im Formular aus, um eine Reservierung vorzunehmen.</p>
+        </div>
+    </header>
+
+    <main>
+        <section id="accommodation-types">
+            <div class="container">
+                <h2>Unsere Schlafmöglichkeiten</h2>
+                <div class="accommodation-grid">
+                    <div class="accommodation-type" data-type="einzelzimmer">
+                        <h3>Einzelzimmer</h3>
+                        <div class="room-image einzelzimmer-image"></div>
+                        <div class="accommodation-info">
+                            <p>Gemütliche Zimmer für bis zu 2 Personen. Hier kannst du gerne deinen Hund mitnehmen.</p>
+                            <p class="price">Preis: 20€ pro Person und Nacht</p>
+                        </div>
+                    </div>
+                    <div class="accommodation-type" data-type="schlaflager">
+                        <h3>Schlaflager</h3>
+                        <div class="room-image schlaflager-image"></div>
+                        <div class="accommodation-info">
+                            <p>Großzügiger Schlafraum für bis zu 20 Personen. Hier teilst du den Schlafplatz mit anderen.</p>
+                            <p class="price">Preis: 10€ pro Person und Nacht</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="booking-form">
+            <div class="container">
+                <h2>Deine Buchung</h2>
+                <div class="booking-grid">
+                    <form id="reservation-form" class="reservation-form">
+                        <div class="form-group">
+                            <label for="arrival">Anreisedatum:</label>
+                            <input type="text" id="arrival" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="departure">Abreisedatum:</label>
+                            <input type="text" id="departure" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="room-type">Zimmertyp:</label>
+                            <select id="room-type" required>
+                                <option value="">Bitte wählen</option>
+                                <option value="einzelzimmer">Einzelzimmer</option>
+                                <option value="schlaflager">Schlaflager</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="guests">Anzahl der Gäste:</label>
+                            <input type="number" id="guests" min="1" max="20" required>
+                            <div id="guest-buttons" class="guest-buttons"></div>
+                        </div>
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="breakfast" name="breakfast">
+                            <label for="breakfast">Frühstück hinzufügen (20€ pro Person und Tag)</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="total-price">Gesamtpreis:</label>
+                            <input type="text" id="total-price" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-Mail:</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefon:</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <button type="submit" class="submit-btn">Reservierung anfragen</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="main.js"></script>
+    <script src="booking.js"></script>
+</body>
+</html>
