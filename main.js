@@ -1,3 +1,8 @@
+document.addEventListener('DOMContentLoaded', function() {
+    
+    initMap();
+});
+
 // Navigation
 const navSlide = () => {
     const burger = document.querySelector('.burger');
@@ -122,17 +127,20 @@ navSlide();
 updateLocationIndicator();
 window.addEventListener('load', updateLocationIndicator);
 
-// Karte initialisieren
 function initMap() {
-    if (document.getElementById('map')) {
-        var map = L.map('map').setView([47.72526, 13.848444], 13);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
+    var mapElement = document.getElementById('map');
+    if (mapElement) {
+        // Verzögerung hinzufügen, um sicherzustellen, dass das DOM vollständig geladen ist
+        setTimeout(function() {
+            var map = L.map(mapElement).setView([47.72526, 13.848444], 13);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
 
-        L.marker([47.72526, 13.848444]).addTo(map)
-            .bindPopup('Riennerhütte')
-            .openPopup();
+            L.marker([47.72526, 13.848444]).addTo(map)
+                .bindPopup('Riennerhütte')
+                .openPopup();
+        }, 100);
     }
 }
 
