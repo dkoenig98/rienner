@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: "Wildensee",
             koordinaten: [47.7125, 13.8517],
+            distanz: "1,8 km",
+            höhenmeter: "120 hm",
             gehzeit: "30 Minuten",
             schwierigkeit: "leicht",
             bild: "see.jpg",
@@ -13,6 +15,8 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: "Rinnerkogel",
             koordinaten: [47.7197, 13.8403],
+            distanz: "3,2 km",
+            höhenmeter: "570 hm",
             gehzeit: "3 Stunden",
             schwierigkeit: "mittel",
             bild: "rinner.jpg",
@@ -21,10 +25,32 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             name: "Weißhorn",
             koordinaten: [47.72706, 13.86032],
-            gehzeit: "1,5 Stunden",
+            distanz: "2,0 km",
+            höhenmeter: "940 hm",
+            gehzeit: "1 Stunde",
             schwierigkeit: "schwer",
             bild: "weiß.jpg",
             beschreibung: "Kein markierter Weg, nur ein Jägersteig, aber man wird durch eine unfassbare Aussicht über das Tote Gebirge belohnt"
+        },
+        {
+            name: "Albert-Appel-Haus",
+            koordinaten: [47.69334, 13.87031],
+            distanz: "5,0 km",
+            höhenmeter: "300 hm",
+            gehzeit: "1,5 Stunden",
+            schwierigkeit: "leicht",
+            bild: "appelhaus.jpg",
+            beschreibung: "Gut markierter Wanderweg durch das wunderschöne Tote Gebirge. Die Hütte bietet eine beeindruckende Aussicht und eine gemütliche Einkehrmöglichkeit."
+        },
+        {
+            name: "Hochkogelhaus",
+            koordinaten: [47.72699, 13.78895],
+            distanz: "8,5 km",
+            höhenmeter: "940 hm",
+            gehzeit: "3,5 Stunden",
+            schwierigkeit: "mittel",
+            bild: "hochkogelhaus.jpg",
+            beschreibung: "Eine lange, aber lohnende Wanderung durch das Tote Gebirge."
         }
     ];
 
@@ -108,6 +134,8 @@ document.addEventListener('DOMContentLoaded', function() {
             <img src="images/${wanderung.bild}" alt="${wanderung.name}">
             <h2>${wanderung.name}</h2>
             <p><strong>Gehzeit:</strong> ${wanderung.gehzeit}</p>
+            <p><strong>Distanz:</strong> ${wanderung.distanz}</p>
+            <p><strong>Höhenmeter:</strong> ${wanderung.höhenmeter}</p>
             <p><strong>Schwierigkeit:</strong> <span class="difficulty-indicator difficulty-${wanderung.schwierigkeit}">${wanderung.schwierigkeit}</span></p>
             <p>${wanderung.beschreibung}</p>
         `;

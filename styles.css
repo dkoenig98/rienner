@@ -1,3 +1,9 @@
+/* ******************************** 
+   ********************************
+   ---------- ALLGEMEIN ----------- 
+   ********************************
+   ******************************* */
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 
 :root {
@@ -53,6 +59,12 @@ nav {
     transition: background-color 0.3s ease;
 }
 
+/* ******************************** 
+   ********************************
+   ------------ INDEX ------------- 
+   ********************************
+   ******************************* */
+
 .home-page nav {
     background-color: transparent;
 }
@@ -76,18 +88,6 @@ body.wanderungen-page nav.scrolled {
 .wanderungen-page {
     scroll-behavior: smooth;
 }
-
-.booking-page .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.booking-page .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 
 nav .container {
     display: flex;
@@ -234,8 +234,8 @@ section {
 
 .fade-in {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .fade-in.visible {
@@ -325,6 +325,12 @@ section {
         transform: scale(1.3);
     }
 }
+
+/* ******************************** 
+   ********************************
+   ------- UEBERNACHTUNG ---------- 
+   ********************************
+   ******************************* */
 
 .accommodation-info {
     padding: 1rem;
@@ -453,7 +459,8 @@ section {
     cursor: pointer;
 }
 .accommodation-type:hover {
-    transform: translateY(-5px);
+    transform: translateY(-10px);
+    transform: scale(1.02);
 }
 
 .accommodation-type h3 {
@@ -576,7 +583,11 @@ section {
     color: white;
 }
 
-/* Wanderungen.hmtl */
+/* ******************************** 
+   ********************************
+   ------- WANDERUNGEN ------------ 
+   ********************************
+   ******************************* */
 .wanderungen-page .wanderungen-header {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/wanderung.jpg');
     background-size: cover;
@@ -588,10 +599,21 @@ section {
     scroll-snap-align: start;
 }
 
+.subheader {
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+}
+
 .wanderungen-container {
     height: calc(100vh - 70px); /* 80px ist die Höhe der Navbar */
     display: flex;
     scroll-snap-align: start;
+}
+
+.wanderungen-page .wanderungen-container {
+    margin-top: 0rem; /* Sie können diesen Wert anpassen */
+    padding-top: 0rem; /* Zusätzlicher Innenabstand oben */
 }
 
 #wanderungen-map {
@@ -628,7 +650,7 @@ section {
 }
 
 .wanderung-item:hover {
-    background-color: #f0f0f0;
+    background-color: #dddddd;
 }
 
 .wanderung-item img {
@@ -654,7 +676,6 @@ section {
     flex: 0 0 auto; /* Ändert die Flex-Eigenschaft */
     padding: 1rem;
     background-color: white;
-    border-bottom: 2px solid var(--primary-color); /* Ändert den Rahmen von oben nach unten */
     margin-bottom: 1rem; /* Fügt einen Abstand nach unten hinzu */
     overflow-y: auto;
     max-height: 60%; /* Begrenzt die maximale Höhe */
@@ -675,7 +696,7 @@ section {
 
 .difficulty-indicator {
     display: inline-block;
-    padding: 0.5rem 1rem;
+    padding: 0.1rem 0.1rem;
     border-radius: 4px;
     font-size: 1rem;
     font-weight: bold;
