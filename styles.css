@@ -22,7 +22,7 @@ body, html {
     scroll-behavior: smooth;
 }
 
-body:not(.home-page):not(.booking-page) #navbar {
+body:not(.home-page):not(.booking-page):not(.wanderungen-page) #navbar {
     background-color: var(--primary-color);
 }
 
@@ -57,8 +57,14 @@ nav {
     background-color: transparent;
 }
 
-.home-page nav.scrolled,
-.booking-page nav.scrolled {
+/* Durch diese spezifischeren Regeln */
+body.wanderungen-page nav:not(.scrolled) {
+    background-color: transparent;
+}
+
+body.home-page nav.scrolled,
+body.booking-page nav.scrolled,
+body.wanderungen-page nav.scrolled {
     background-color: var(--primary-color);
 }
 
@@ -66,7 +72,8 @@ nav {
     background-color: transparent;
 }
 
-.booking-page {
+.booking-page,
+.wanderungen-page {
     scroll-behavior: smooth;
 }
 
@@ -568,3 +575,204 @@ section {
     background-color: var(--primary-color);
     color: white;
 }
+
+/* Wanderungen.hmtl */
+.wanderungen-page .wanderungen-header {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/wanderung.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 6rem 0 3rem;
+    text-align: center;
+    scroll-snap-type: y mandatory;
+    scroll-snap-align: start;
+}
+
+.wanderungen-container {
+    height: calc(100vh - 70px); /* 80px ist die Höhe der Navbar */
+    display: flex;
+    scroll-snap-align: start;
+}
+
+#wanderungen-map {
+    position: relative;
+    z-index: 1;	
+    flex: 3;
+    height: 100%;
+    min-height: 50vh;
+}
+
+.wanderungen-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 1rem;
+    background-color: #f9f9f9;
+}
+
+.wanderungen-list {
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 1rem;
+}
+
+.wanderung-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    border-bottom: 1px solid var(--primary-color);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 0.5rem;
+}
+
+.wanderung-item:hover {
+    background-color: #f0f0f0;
+}
+
+.wanderung-item img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 1.0rem;
+}
+
+.wanderung-item-info h3 {
+    margin: 0 0 0.25rem 0;
+    font-size: 1.1rem;
+}
+
+.wanderung-item-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.wanderung-details {
+    flex: 0 0 auto; /* Ändert die Flex-Eigenschaft */
+    padding: 1rem;
+    background-color: white;
+    border-bottom: 2px solid var(--primary-color); /* Ändert den Rahmen von oben nach unten */
+    margin-bottom: 1rem; /* Fügt einen Abstand nach unten hinzu */
+    overflow-y: auto;
+    max-height: 60%; /* Begrenzt die maximale Höhe */
+}
+
+.wanderung-details img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.wanderung-details h2 {
+    margin-top: 0;
+    font-size: 2rem;
+}
+
+.difficulty-indicator {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-top: 1rem;
+}
+
+.difficulty-leicht { background-color: #4CAF50; color: white; }
+.difficulty-mittel { background-color: #FFC107; color: black; }
+.difficulty-schwer { background-color: #F44336; color: white; }
+
+@media screen and (max-width: 768px) {
+    .wanderungen-container {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    #wanderungen-map {
+        height: 50vh;
+        min-height: 300px;
+        width: 100%;
+    }
+
+    .wanderungen-info {
+        width: 100%;
+    }
+
+    .wanderung-details {
+        max-height: none;
+    }
+
+    .wanderung-item img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .wanderung-item-info h3 {
+        font-size: 1rem;
+    }
+
+    .wanderung-item-info p {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .wanderungen-header h1 {
+        font-size: 2rem;
+    }
+
+    .wanderungen-header p {
+        font-size: 1rem;
+    }
+
+    .cta-button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    #wanderungen-map {
+        height: 40vh;
+    }
+
+    .wanderung-item {
+        padding: 0.5rem;
+    }
+
+    .wanderung-item img {
+        width: 40px;
+        height: 40px;
+        margin-right: 0.5rem;
+    }
+
+    .wanderung-details h2 {
+        font-size: 1.2rem;
+    }
+
+    .wanderung-details img {
+        height: 100px;
+    }
+}
+
+/* Fixieren der Leaflet-Steuerelemente innerhalb der Karte */
+.leaflet-control-container .leaflet-top,
+.leaflet-control-container .leaflet-bottom {
+    position: absolute;
+    z-index: 1000;
+}
+
+.leaflet-control-container .leaflet-top {
+    top: 0 !important;
+}
+
+.leaflet-control-container .leaflet-bottom {
+    bottom: 0 !important;
+}
+
+
+

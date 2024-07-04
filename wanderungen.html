@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderungen rund um die Rinnerhütte</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</head>
+<body class="wanderungen-page">
+    <nav id="navbar">
+        <div class="container">
+            <div class="logo">Rinnerhütte</div>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#ueber-uns">Über uns</a></li>
+                <li><a href="uebernachtung.html">Übernachtung</a></li>
+                <li><a href="index.html#standort">Standort</a></li>
+                <li><a href="index.html#kontakt">Kontakt</a></li>
+            </ul>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="wanderungen-header">
+        <div class="container">
+            <h1>Wanderungen rund um die Rienerhütte</h1>
+            <p style="color: white; font-size: 1.2rem; max-width: 600px;">Entdecken Sie die schönsten Routen und Gipfel in unserer Umgebung</p>
+            <a href="#wanderungen-map" class="cta-button">Zu den Wanderungen</a>
+        </div>
+    </header>
+
+    <main class="wanderungen-container">
+        <div id="wanderungen-map"></div>
+        <div class="wanderungen-info">
+            <div class="wanderungen-list">
+                <!-- Hier werden die Wanderungen dynamisch eingefügt -->
+            </div>
+            <div class="wanderung-details">
+                <!-- Hier werden die Details der ausgewählten Wanderung angezeigt -->
+            </div>
+        </div>
+    </main>
+
+    <script src="main.js"></script>
+    <script src="wanderungen.js"></script>
+    <script>
+        window.addEventListener('load', function() {
+            if (map) {
+                map.invalidateSize();
+            }
+        });
+    </script>
+</body>
+</html>

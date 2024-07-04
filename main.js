@@ -48,18 +48,13 @@ function toggleNav() {
     });
 }
 
-// Scroll effects
 window.addEventListener('scroll', () => {
     const navbar = document.getElementById('navbar');
     const isHomePage = document.body.classList.contains('home-page');
     const isBookingPage = document.body.classList.contains('booking-page');
+    const isWanderungenPage = document.body.classList.contains('wanderungen-page');
 
-    if ((isHomePage || isBookingPage) && window.scrollY > 100) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
-    }
-    if (window.scrollY > 100) {
+    if ((isHomePage || isBookingPage || isWanderungenPage) && window.scrollY > 100) {
         navbar.classList.add('scrolled');
     } else {
         navbar.classList.remove('scrolled');
@@ -145,3 +140,17 @@ function initMap() {
 }
 
 resetNavbarOnLoad();
+
+// Fügen Sie diese Funktion am Ende der Datei hinzu:
+function checkMapVisibility() {
+    var mapElement = document.getElementById('map');
+    if (mapElement && isElementInViewport(mapElement) && !mapElement.hasAttribute('data-map-initialized')) {
+        initMap();
+        mapElement.setAttribute('data-map-initialized', 'true');
+    }
+}
+
+// Fügen Sie diese Event-Listener am Ende der Datei hinzu:
+window.addEventListener('scroll', checkMapVisibility);
+window.addEventListener('resize', checkMapVisibility);
+document.addEventListener('DOMContentLoaded', checkMapVisibility);
