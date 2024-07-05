@@ -58,6 +58,16 @@
        z-index: 1000;
        transition: background-color 0.3s ease;
    }
+
+   .logo a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    }
+
+    .logo a:hover {
+        text-decoration: none;
+    }
    
    /* ******************************** 
       ********************************
@@ -169,6 +179,25 @@
        background-color: #e74c3c;
        transform: translateY(-3px);
    }
+
+/* Desktop Styles */
+@media (min-width: 768px) {
+    .home-page header .container,
+    .booking-page header .container,
+    .wanderungen-header .container {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .home-page header h1,
+    .home-page header p,
+    .booking-page header h1,
+    .booking-page header p,
+    .wanderungen-header h1,
+    .wanderungen-header p {
+        max-width: 100%;
+    }
+}
    
    section {
        padding: 6rem 0;
@@ -412,6 +441,10 @@
        .nav-active {
            display: flex;
        }
+
+       .room-image {
+           height: 300px;
+       } 
    }
    
    .einzelzimmer-image {
@@ -437,6 +470,12 @@
    
    .booking-page section {
        padding: 4rem 0;
+   }
+
+   @media screen and (max-width: 768px) {
+       .booking-page section {
+           padding: 2rem 0;
+       }
    }
    
    .booking-header h1 {

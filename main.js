@@ -54,7 +54,7 @@ window.addEventListener('scroll', () => {
     const isBookingPage = document.body.classList.contains('booking-page');
     const isWanderungenPage = document.body.classList.contains('wanderungen-page');
 
-    if ((isHomePage || isBookingPage || isWanderungenPage) && window.scrollY > 100) {
+    if ((isHomePage || isBookingPage || isWanderungenPage) && window.scrollY > 70) {
         navbar.classList.add('scrolled');
     } else {
         navbar.classList.remove('scrolled');
